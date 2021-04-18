@@ -1,8 +1,22 @@
 package com.DrugStore.spring.drug;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+
+@Entity
+@Table
 public class Drug {
+    @Id
+    @SequenceGenerator(
+            name = "drug_sequence",
+            sequenceName = "drug_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "drug_sequence"
+    )
 
     private long drugId;
     private String drugName;
